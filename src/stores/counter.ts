@@ -8,6 +8,9 @@ export const useCounterStore = defineStore('counter', {
     increment(val = 1) {
       this.count += val
     },
+    decrement(val = 1) {
+      this.count -= val
+    },
     async waitAndAdd() {
       setTimeout(() => {
         this.count++
