@@ -1,11 +1,41 @@
 <script setup lang="ts">
+import { useCounterStore } from '../stores/counter'
+
+const store = useCounterStore()
+store.count++
 </script>
 
 <template>
   <main>
     <div class="btn-wrapper">
-      <button class="increment-button btn" style="margin-right: 8px" @click="store.increment()">Increment</button>
-      <button class="decrement-button btn" @click="store.decrement()">Decrement</button>
+      <button
+        class="increment-button btn"
+        style="margin-right: 8px"
+        @click="store.increment()"
+      >
+        Increment
+      </button>
+      <button
+        class="increment-button btn"
+        @click="store.waitAndAdd()"
+      >
+        Wait + Increment
+      </button>
+    </div>
+    <div class="btn-wrapper">
+      <button
+        class="decrement-button btn"
+        style="margin-right: 8px"
+        @click="store.decrement()"
+      >
+        Decrement
+      </button>
+      <button
+        class="decrement-button btn"
+        @click="store.waitAndReduce()"
+      >
+        Wait + Decrement
+      </button>
     </div>
     <div class="counter-wrapper">
       <p>Count is {{ store.count }}</p>
