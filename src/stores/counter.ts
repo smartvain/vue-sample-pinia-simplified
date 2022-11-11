@@ -15,7 +15,12 @@ export const useCounterStore = defineStore('counter', {
       setTimeout(() => {
         this.count++
       }, 2000)
-    }
+    },
+    async waitAndReduce() {
+      setTimeout(() => {
+        this.count--
+      }, 2000)
+    },
   },
   getters: {
     doubleCount: (state) => state.count * 2,
